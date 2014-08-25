@@ -1,0 +1,14 @@
+<html>
+<body>
+  <script src="dojo/dojo.js" data-dojo-config="async: true"></script>
+  <script>
+            require([ "app/counter" ], function(counter) {
+                console.log(counter.getValue());
+                counter.increment();
+                console.log(counter.getValue());
+                counter.decrement();
+                console.log(counter.getValue());
+            });
+        </script>
+</body>
+</html>

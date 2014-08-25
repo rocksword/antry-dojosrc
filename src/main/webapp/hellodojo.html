@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tutorial: Hello Dojo!</title>
+<!-- configure Dojo -->
+<script>
+    console.info("location: " + location);
+    console.info("location.href: " + location.href);
+    console.info("location.pathname: " + location.pathname);
+    console.info("location.host: " + location.host);
+    var dojoConfig = {
+        async : true,
+        baseUrl : '.',
+        packages : [ 'dojo',//
+        'dijit', //
+        'dojox', //
+        'demo' ]
+    };
+</script>
+<!-- load Dojo -->
+<script src="dojo/dojo.js"></script>
+
+<script>
+    //     require([ 'dojo/dom', 'demo/myModule', 'dojo/domReady!' ], function(dom, myModule) {
+    //         console.info(dom.byId("greeting"))
+    //         myModule.setText('greeting', 'Hello Dojo!');
+    //         setTimeout(function() {
+    //             myModule.restoreText('greeting');
+    //         }, 5000);
+    //         console.info(dom.byId("greeting"))
+    //     });
+
+    require([ 'dojo/dom', 'dojo/fx', 'dojo/domReady!' ], function(dom, fx) {
+        // The piece we had before...
+        var greeting = dom.byId('greeting');
+        greeting.innerHTML += ' from Dojo!';
+
+        // ...but now, with an animation!
+        fx.slideTo({
+            node : greeting,
+            top : 100,
+            left : 200
+        }).play();
+    });
+</script>
+</head>
+<body>
+  <h1 id="greeting">Hello</h1>
+</body>
+</html>
